@@ -15,26 +15,28 @@ import javax.servlet.http.HttpSession;
 import br.com.alura.gerenciador.User;
 import br.com.alura.gerenciador.dao.UserDAO;
 
-@WebServlet(urlPatterns = "/Login")
-public class Login extends HttpServlet {
+public class Login implements Task {
 	
+
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+	public String execute(HttpServletRequest req, HttpServletResponse resp) {
+
 		String login = req.getParameter("user");
 		String password = req.getParameter("password");
-		PrintWriter writer = resp.getWriter();
 		
 		Boolean returnAuthentication = authenticationUser(login, password, req);
+		String msgStatusLogin;
 		
-		if(returnAuthentication) {
-			writer.println("Login efetuado com Sucesso!");
-		}else {
-			writer.println("Login ou senha invalidos");
-		}
-
+		if (returnAuthentication)
+			msgStatusLogin = "Login efetuado com Sucesso!";
+		else 
+			msgStatusLogin = "Login ou senha invalidos";
+		
+		
+		req.setAttribute("msgStatusLogin", msgStatusLogin);
+		return "/WEB-INF/pages/Login.jsp";
 	}
-
+	
 	private Boolean authenticationUser(String email, String password, HttpServletRequest req) {
 
 		User user = new UserDAO().searchForEmailPassword(email, password);
@@ -48,4 +50,5 @@ public class Login extends HttpServlet {
 			return true;
 		}
 	}
+
 }

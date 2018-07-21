@@ -14,24 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.Company;
 import br.com.alura.gerenciador.dao.CompanyDAO;
 
-@WebServlet(urlPatterns = "/search")
-public class SearchCompany extends HttpServlet {
+public class SearchCompany implements Task {
+	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-	        throws ServletException, IOException {
+	public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
-	    PrintWriter writer = resp.getWriter();
-	    writer.println("<html><body>");
-	    writer.println("Resultado da busca:<br/>");
-	    
 	    String filter = req.getParameter("filter");
+	    
 	    Collection<Company> companies = new CompanyDAO()
 	            .buscaPorSimilaridade(filter);
-
+	    
 	    req.setAttribute("companies", companies);
         
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/pages/search.jsp");
-        dispatcher.forward(req, resp);
-	   
+	    return "/WEB-INF/pages/SearchCompany.jsp";
 	}
+
 }

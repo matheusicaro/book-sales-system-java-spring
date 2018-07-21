@@ -8,7 +8,7 @@ Bem vindo ao nosso gerenciador de empresas!<br/>
 </c:if>
 
 
-<form action="NewCompany" method="post">
+<form action="Controller?task=NewCompany" method="post">
     Nome: <input type="text" name="name" /><br />
     <input type="submit" value="Send" />
 </form>
@@ -19,7 +19,7 @@ Bem vindo ao nosso gerenciador de empresas!<br/>
     Senha: <input type="text" name="password" /><br />
     <input type="submit" value="login" />
 </form>
-<form action="Logout" method="post">
+<form action="Controller?task=Logout" method="post">
     <input type="submit" value="Logout" />
 </form>
 </body>

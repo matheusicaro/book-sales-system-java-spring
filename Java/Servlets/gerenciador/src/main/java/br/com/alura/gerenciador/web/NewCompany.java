@@ -12,12 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.Company;
 import br.com.alura.gerenciador.dao.CompanyDAO;
 
-@WebServlet(urlPatterns = "/NewCompany")
-public class NewCompany extends HttpServlet {
+public class NewCompany implements Task {
 	
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+	@Override
+	public String execute(HttpServletRequest req, HttpServletResponse resp) {
 
         String name = req.getParameter("name");
         Company company = new Company(name);
@@ -25,7 +23,6 @@ public class NewCompany extends HttpServlet {
 
         req.setAttribute("name", name);
         
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/pages/logout.jsp");
-        dispatcher.forward(req, resp);
-    }
+		return "/WEB-INF/pages/NewCompany.jsp";
+	}
 }
