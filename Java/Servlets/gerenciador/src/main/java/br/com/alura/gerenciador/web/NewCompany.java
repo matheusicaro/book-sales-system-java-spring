@@ -1,16 +1,16 @@
 package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.Empresa;
-import br.com.alura.gerenciador.dao.EmpresaDAO;
+import br.com.alura.gerenciador.Company;
+import br.com.alura.gerenciador.dao.CompanyDAO;
 
 @WebServlet(urlPatterns = "/NewCompany")
 public class NewCompany extends HttpServlet {
@@ -20,10 +20,12 @@ public class NewCompany extends HttpServlet {
             throws ServletException, IOException {
 
         String name = req.getParameter("name");
-        Empresa company = new Empresa(name);
-        new EmpresaDAO().adiciona(company);
-        PrintWriter writer = resp.getWriter();
-        writer.println("<html><body>Empresa " + name + " adicionada!</body></html>");
+        Company company = new Company(name);
+        new CompanyDAO().add(company);
 
+        req.setAttribute("name", name);
+        
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/pages/logout.jsp");
+        dispatcher.forward(req, resp);
     }
 }

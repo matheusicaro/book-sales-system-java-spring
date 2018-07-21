@@ -1,6 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
 Bem vindo ao nosso gerenciador de empresas!<br/>
+
+<c:if test="${userLogged!=null}">
+    <b>Voce esta logado como ${userLogged.email}</b></b><br/><br/>
+</c:if>
+
+
 <form action="NewCompany" method="post">
     Nome: <input type="text" name="name" /><br />
     <input type="submit" value="Send" />

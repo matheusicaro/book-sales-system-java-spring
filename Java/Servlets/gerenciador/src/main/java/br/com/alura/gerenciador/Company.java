@@ -1,20 +1,20 @@
 package br.com.alura.gerenciador;
 
-public class Empresa {
+public class Company {
 
 	private Long id = 0l;
-	private String nome;
+	private String name;
 
-	public Empresa(String nome) {
-		this.nome = nome;
+	public Company(String name) {
+		this.name = name;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
 	public void setId(long id) {
