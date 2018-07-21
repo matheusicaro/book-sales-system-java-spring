@@ -31,7 +31,7 @@ public class AuditFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		
-		Cookie getLoggedUser = getUserCookie(req);
+		Cookie getLoggedUser = new Cookies(req.getCookies()).getUserCookie();
 		String user = "<deslogado>";
 		
 		if(getLoggedUser != null)
@@ -42,23 +42,6 @@ public class AuditFilter implements Filter {
 		chain.doFilter(request, response);
 
 	}
-
-
-		private Cookie getUserCookie(HttpServletRequest req) {
-			
-			Cookie []getLoggedUser = req.getCookies();
-			
-			if(getLoggedUser == null)
-				return null;
-			
-			for (Cookie cookie : getLoggedUser) {
-				if (cookie.getName().equals("userLogged")) {
-					return cookie;
-				}
-			}
-			
-			return null;
-		}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
