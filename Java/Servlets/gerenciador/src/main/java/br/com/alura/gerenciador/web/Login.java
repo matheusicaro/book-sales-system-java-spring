@@ -10,9 +10,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import br.com.alura.gerenciador.Usuario;
-import br.com.alura.gerenciador.dao.UsuarioDAO;
+import br.com.alura.gerenciador.User;
+import br.com.alura.gerenciador.dao.UserDAO;
 
 @WebServlet(urlPatterns = "/Login")
 public class Login extends HttpServlet {
@@ -23,26 +24,27 @@ public class Login extends HttpServlet {
 		String login = req.getParameter("user");
 		String password = req.getParameter("password");
 		PrintWriter writer = resp.getWriter();
-
-		Boolean returnAuthentication = authenticationUser(login, password, writer);
+		
+		Boolean returnAuthentication = authenticationUser(login, password, req);
+		
 		if(returnAuthentication) {
-			Cookie cookieLoggedUser = new Cookie("userLogged", login);
-			resp.addCookie(cookieLoggedUser);
+			writer.println("Login efetuado com Sucesso!");
+		}else {
+			writer.println("Login ou senha invalidos");
 		}
 
 	}
 
-	private Boolean authenticationUser(String login, String password, PrintWriter writer) {
+	private Boolean authenticationUser(String email, String password, HttpServletRequest req) {
 
-		Usuario user = new UsuarioDAO().buscaPorEmailESenha(login, password);
-
+		User user = new UserDAO().searchForEmailPassword(email, password);
+		
 		if(user == null) {
-			writer.println("Login ou senha invalidos");
 			return false;
 		}else {
-			writer.println("Sucesso!\n" 
-				+ "Login :" + user.getEmail() + "\t"  
-				+ "Senha :" + user.getSenha());
+			
+			HttpSession session = req.getSession();
+			session.setAttribute("userLogged", user);
 			return true;
 		}
 	}

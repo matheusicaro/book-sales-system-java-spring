@@ -1,17 +1,17 @@
 package br.com.alura.gerenciador;
 
-public class Usuario {
+public class User {
 
 	private String email;
-	private String senha;
+	private String password;
 
-	public Usuario(String email, String senha) {
+	public User (String email, String senha) {
 		this.email = email;
-		this.senha = senha;
+		this.password = senha;
 	}
 
 	public String getSenha() {
-		return senha;
+		return password;
 	}
 
 	public String getEmail() {

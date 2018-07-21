@@ -11,9 +11,12 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.apache.tomcat.util.buf.CharChunk.CharInputChannel;
+
+import br.com.alura.gerenciador.User;
 
 
 @WebFilter(urlPatterns = "/*")
@@ -30,12 +33,12 @@ public class AuditFilter implements Filter {
 			throws IOException, ServletException {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
-		
-		Cookie getLoggedUser = new Cookies(req.getCookies()).getUserCookie();
+		HttpSession session = req.getSession();
+		User userLogged =  (User) session.getAttribute("userLogged");
 		String user = "<deslogado>";
 		
-		if(getLoggedUser != null)
-			user =  getLoggedUser.getValue();
+		if(userLogged != null)
+			user =  userLogged.getEmail();
 	
 		System.out.println("Usuario: " + user + " Acessando: " + req.getRequestURI());
 
