@@ -1,5 +1,5 @@
 # courses
-completed courses
+Completed Courses
 
 This repository is intended for courses held, as well as: Exercises, challenges, project base, applied theory.
 
@@ -9,4 +9,4 @@ This is due to compare evolution and trajectory initiated.
 
 Each branch represents a specific course.
 
-Current branch: * Java/Servlets 
+**In each course folder, there is a README that contains: Certificate and Course Summary**
