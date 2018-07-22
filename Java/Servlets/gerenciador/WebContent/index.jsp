@@ -14,7 +14,7 @@ Bem vindo ao nosso gerenciador de empresas!<br/>
 </form>
 <br />
 <br />
-<form action="Login" method="post">
+<form action="Controller?task=Login" method="post">
     Usuario: <input type="text" name="user" /><br />
     Senha: <input type="text" name="password" /><br />
     <input type="submit" value="login" />
