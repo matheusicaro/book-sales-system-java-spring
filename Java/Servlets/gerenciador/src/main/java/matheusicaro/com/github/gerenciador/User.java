@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador;
+package matheusicaro.com.github.gerenciador;
 
 public class User {
 

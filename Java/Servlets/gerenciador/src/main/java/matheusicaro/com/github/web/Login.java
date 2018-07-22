@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.web;
+package matheusicaro.com.github.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.alura.gerenciador.User;
-import br.com.alura.gerenciador.dao.UserDAO;
+import matheusicaro.com.github.dao.UserDAO;
+import matheusicaro.com.github.gerenciador.User;
 
 public class Login implements Task {
 	

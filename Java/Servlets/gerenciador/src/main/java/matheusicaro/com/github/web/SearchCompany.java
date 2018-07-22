@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.web;
+package matheusicaro.com.github.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.Company;
-import br.com.alura.gerenciador.dao.CompanyDAO;
+import matheusicaro.com.github.dao.CompanyDAO;
+import matheusicaro.com.github.gerenciador.Company;
 
 public class SearchCompany implements Task {
 	

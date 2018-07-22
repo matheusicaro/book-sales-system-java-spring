@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.web;
+package matheusicaro.com.github.web;
 
 import java.io.IOException;
 
@@ -23,7 +23,7 @@ public class Controller extends HttpServlet{
 		}
 		
 		try {
-			String nameClass = "br.com.alura.gerenciador.web." + task;
+			String nameClass = "matheusicaro.com.github.web." + task;
 			Class type = Class.forName(nameClass);
 			Task instance = (Task) type.newInstance();
 			String page = instance.execute(req, resp);

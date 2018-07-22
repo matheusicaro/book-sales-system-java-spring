@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.web;
+package matheusicaro.com.github.web;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.apache.tomcat.util.buf.CharChunk.CharInputChannel;
 
-import br.com.alura.gerenciador.User;
+import matheusicaro.com.github.gerenciador.User;
 
 
 @WebFilter(urlPatterns = "/*")

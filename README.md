@@ -7,6 +7,6 @@ All training courses for new technologies, framewoks and languages performed by 
 
 This is due to compare evolution and trajectory initiated.
 
-Each branch represents a specific course.
+Each branch represents a specific course, and when complete, will be added to master.
 
 **In each course folder, there is a README that contains: Certificate and Course Summary**

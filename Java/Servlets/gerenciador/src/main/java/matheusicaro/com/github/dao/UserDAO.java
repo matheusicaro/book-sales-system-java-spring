@@ -1,9 +1,9 @@
-package br.com.alura.gerenciador.dao;
+package matheusicaro.com.github.dao;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import br.com.alura.gerenciador.User;
+import matheusicaro.com.github.gerenciador.User;
 
 public class UserDAO {
 
