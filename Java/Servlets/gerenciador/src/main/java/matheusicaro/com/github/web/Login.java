@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import matheusicaro.com.github.dao.UserDAO;
-import matheusicaro.com.github.manager.User;
+import matheusicaro.com.github.gerenciador.User;
 
 public class Login implements Task {
 	

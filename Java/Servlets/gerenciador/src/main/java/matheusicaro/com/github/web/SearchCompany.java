@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import matheusicaro.com.github.dao.CompanyDAO;
-import matheusicaro.com.github.manager.Company;
+import matheusicaro.com.github.gerenciador.Company;
 
 public class SearchCompany implements Task {
 	

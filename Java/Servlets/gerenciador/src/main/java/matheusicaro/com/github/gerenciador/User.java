@@ -1,4 +1,4 @@
-package matheusicaro.com.github.manager;
+package matheusicaro.com.github.gerenciador;
 
 public class User {
 
