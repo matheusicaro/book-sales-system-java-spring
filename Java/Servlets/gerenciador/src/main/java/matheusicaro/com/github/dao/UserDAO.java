@@ -3,7 +3,7 @@ package matheusicaro.com.github.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import matheusicaro.com.github.manager.User;
+import matheusicaro.com.github.gerenciador.User;
 
 public class UserDAO {
 

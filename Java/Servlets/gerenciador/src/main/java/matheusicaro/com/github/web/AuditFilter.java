@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.apache.tomcat.util.buf.CharChunk.CharInputChannel;
 
-import matheusicaro.com.github.manager.User;
+import matheusicaro.com.github.gerenciador.User;
 
 
 @WebFilter(urlPatterns = "/*")
