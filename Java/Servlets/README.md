@@ -19,6 +19,7 @@ Below you will find each step completed until the project is completed.
 13) Model View Controller
 
 Views are accessed through the addresses http://localhost:8080/manager/*:
+
 */Login -> Login
 */Logout -> Log Out
 */NewCompany -> Add New Company
