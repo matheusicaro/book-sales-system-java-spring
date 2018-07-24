@@ -31,7 +31,7 @@ public class JPAConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUsername("postgres");
         dataSource.setPassword("12345");
-        dataSource.setUrl("jdbc::postgresql//localhost:5432/spring-adventure");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/spring-adventure");
         dataSource.setDriverClassName("org.postgresql.Driver");
 
         factoryBean.setDataSource(dataSource);

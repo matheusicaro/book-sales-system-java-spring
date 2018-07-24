@@ -1,5 +1,8 @@
 package matheusicaro.com.github.store.models;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,11 +18,22 @@ public class Product {
 	private String title;
 	private String description;
 	private int pages;
+	
+	@ElementCollection
+	private List<Price> prices;
 
 	@Override
 	public String toString() {
-		return "Product [title=" + title + ", descripton=" + description + ", pages=" + pages + "]";
-	}	
+		return "Product [title=" + title + ", description=" + description + ", pages=" + pages + "]";
+	}
+	
+	public List<Price> getPrices() {
+		return prices;
+	}
+
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
+	}
 	
 	public int getId() {
 		return Id;
@@ -35,11 +49,11 @@ public class Product {
 	public void setPages(int pages) {
 		this.pages = pages;
 	}
-	public String getDescripton() {
+	public String getDescription() {
 		return description;
 	}
-	public void setDescripton(String descripton) {
-		this.description = descripton;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getTitle() {
 		return title;
