@@ -20,7 +20,7 @@ import matheusicaro.com.github.store.models.Product;
 import matheusicaro.com.github.store.validation.ProductsValidation;
 
 @Controller
-@RequestMapping("products")
+@RequestMapping("/products")
 public class ProductsController {
 	
 	@Autowired
