@@ -1,5 +1,6 @@
 package matheusicaro.com.github.store.models;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -18,6 +21,9 @@ public class Product {
 	private String title;
 	private String description;
 	private int pages;
+	
+	@DateTimeFormat
+	private Calendar dateLaunch;
 	
 	@ElementCollection
 	private List<Price> prices;
@@ -60,6 +66,14 @@ public class Product {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Calendar getDateLaunch() {
+		return dateLaunch;
+	}
+
+	public void setDateLaunch(Calendar dateLaunch) {
+		this.dateLaunch = dateLaunch;
 	}
 
 	

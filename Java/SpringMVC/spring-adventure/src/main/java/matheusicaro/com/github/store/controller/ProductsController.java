@@ -32,7 +32,7 @@ public class ProductsController {
 	}
 	
 	@RequestMapping("/form")
-	public ModelAndView form() {
+	public ModelAndView form(Product product) {
 		ModelAndView pricesOfProducts = new ModelAndView("products/form");
 		pricesOfProducts.addObject("typesBook", EnumTypeBook.values());
 		return pricesOfProducts;
@@ -42,7 +42,7 @@ public class ProductsController {
 	public ModelAndView save(@Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
 
 		if(result.hasErrors())
-			return form();
+			return form(product);
 			
 		productDAO.toSave(product);
 	    redirectAttributes.addFlashAttribute("success", "Sucesso ao adicionar o livro!");
