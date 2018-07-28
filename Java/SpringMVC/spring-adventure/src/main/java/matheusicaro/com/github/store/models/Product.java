@@ -21,6 +21,7 @@ public class Product {
 	private String title;
 	private String description;
 	private int pages;
+	private String sumarioPath;
 	
 	@DateTimeFormat
 	private Calendar dateLaunch;
@@ -74,6 +75,14 @@ public class Product {
 
 	public void setDateLaunch(Calendar dateLaunch) {
 		this.dateLaunch = dateLaunch;
+	}
+
+	public String getSumarioPath() {
+		return sumarioPath;
+	}
+
+	public void setSumarioPath(String sumarioPath) {
+		this.sumarioPath = sumarioPath;
 	}
 
 	

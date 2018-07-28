@@ -1,9 +1,13 @@
 package matheusicaro.com.github.store.config;
 
 import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import matheusicaro.com.github.store.infra.FileSaver;
 
 public class ServLetSpringMVC extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -17,7 +21,8 @@ public class ServLetSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	protected Class<?>[] getServletConfigClasses() {
 		return new Class[] {
 				AppWebConfiguration.class,
-				JPAConfiguration.class
+				JPAConfiguration.class,
+				FileSaver.class
 		};
 	}
 
@@ -33,7 +38,10 @@ public class ServLetSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 
 	    return new Filter[] {encodingFilter};
 	}
+	
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+	    registration.setMultipartConfig(new MultipartConfigElement(""));
+	}
 
-	
-	
 }
