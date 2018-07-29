@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,7 @@
 				<nav id="main-nav">
 
 					<ul class="clearfix">
-						<li><a href="/carrinho" rel="nofollow">Carrinho</a></li>
+						<li><a href="/shopping-cart" rel="nofollow">Seu Carrinho (${shoppingCart.quantities})</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
 					</ul>
@@ -71,12 +72,13 @@
 		</header>prices[${status.index}].value
 
 		<section class="buy-options clearfix">
-			<form action="/carrinho/add" method="post" class="container">
-				<input type="hidden" value="${products.id }" name="produtoId" >
+			<form action='<c:url value="/shopping-cart/add" />' method="post" class="container">
+				<input type="hidden" value="${products.id }" name="productId" >
 				<ul id="variants" class="clearfix">
 					<c:forEach items="${products.prices}" var="prices" varStatus="status">
 						<li class="buy-option">
-							<input type="radio" name="tipoPreco" class="variant-radio" id="tipoPreco" value="${prices.type }" checked="checked" /> 
+						
+							<input type="radio" name="typePrice" class="variant-radio" id="typePrice" value="${prices.type}" checked="checked" /> 
 							<label class="variant-label" >${prices.type }</label> 
 							<small class="compare-at-price">R$ ${( prices.value + 10 )}</small>
 							<p class="variant-price">${prices.value }</p>
@@ -101,8 +103,9 @@
 				<p>
 					Número de páginas: <span>${products.pages}</span>
 				</p>
-				<p></p>
-				<p>Data de publicação: ${products.dateLaunch }</p>
+				<p>
+				   Data de publicação: <fmt:formatDate pattern="dd/MM/yyyy" value="${products.dateLaunch.time}"/>
+            	</p>
 				<p>
 					Encontrou um erro? <a href='/submissao-errata' target='_blank'>Submeta uma errata</a>
 				</p>

@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import matheusicaro.com.github.store.daos.ProductDAO;
 import matheusicaro.com.github.store.infra.FileSaver;
-import matheusicaro.com.github.store.models.EnumTypeBook;
+import matheusicaro.com.github.store.models.EnumTypePrice;
 import matheusicaro.com.github.store.models.Product;
 import matheusicaro.com.github.store.validation.ProductsValidation;
 
@@ -40,7 +40,7 @@ public class ProductsController {
 	@RequestMapping("/form")
 	public ModelAndView form(Product product) {
 		ModelAndView ModelAndViewPricesOfProducts = new ModelAndView("products/form");
-		ModelAndViewPricesOfProducts.addObject("typesBook", EnumTypeBook.values());
+		ModelAndViewPricesOfProducts.addObject("typesBook", EnumTypePrice.values());
 		return ModelAndViewPricesOfProducts;
 	}
 
@@ -73,7 +73,6 @@ public class ProductsController {
 		ModelAndView ModelAndViewProductDetails = new ModelAndView("products/products-details");
 		Product product = productDAO.find(id);
 		ModelAndViewProductDetails.addObject("products", product);
-		System.out.println("PRODUTO.....:" + product);
 		return ModelAndViewProductDetails;
 		
 	} 

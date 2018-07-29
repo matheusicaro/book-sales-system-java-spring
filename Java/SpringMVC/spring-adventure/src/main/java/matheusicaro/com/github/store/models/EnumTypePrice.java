@@ -1,5 +1,5 @@
 package matheusicaro.com.github.store.models;
 
-public enum EnumTypeBook {
+public enum EnumTypePrice {
 	EBOOK, IMPRESSO, COMBO;
 }

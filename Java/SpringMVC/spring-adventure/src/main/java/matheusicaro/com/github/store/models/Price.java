@@ -6,20 +6,23 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Price {
-	
+
 	private BigDecimal value;
-	private EnumTypeBook type;
-	
+	private EnumTypePrice type;
+
 	public BigDecimal getValue() {
 		return value;
 	}
+
 	public void setValue(BigDecimal value) {
 		this.value = value;
 	}
-	public EnumTypeBook getType() {
+
+	public EnumTypePrice getType() {
 		return type;
 	}
-	public void setType(EnumTypeBook type) {
+
+	public void setType(EnumTypePrice type) {
 		this.type = type;
 	}
 }
