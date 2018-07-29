@@ -10,18 +10,22 @@ import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import matheusicaro.com.github.store.controller.HomeController;
 import matheusicaro.com.github.store.daos.ProductDAO;
+import matheusicaro.com.github.store.infra.FileSaver;
 
 @EnableWebMvc
 @ComponentScan(basePackageClasses = {
 		HomeController.class,
-		ProductDAO.class	
+		ProductDAO.class,
+		FileSaver.class
 		})
-public class AppWebConfiguration {
+public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Bean
 	public InternalResourceViewResolver InternalResourceView() {
@@ -58,5 +62,11 @@ public class AppWebConfiguration {
 	@Bean
 	public MultipartResolver multipartResolver() {
 	    return new StandardServletMultipartResolver();
+	}
+	
+	// handle static configuration, performance, and tomcat resources.
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+	    configurer.enable();
 	}
 }

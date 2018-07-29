@@ -15,13 +15,19 @@ import matheusicaro.com.github.store.models.Product;
 public class ProductDAO {
 	
 	@PersistenceContext
-	private EntityManager mananger;
+	private EntityManager manager;
 	
 	public void toSave (Product product) {
-		mananger.persist(product);
+		manager.persist(product);
 	}
 	
 	public List<Product> getProductsList (){
-		return mananger.createQuery("select p from Product p", Product.class).getResultList();
+		return manager.createQuery("select p from Product p", Product.class).getResultList();
+	}
+	
+	public Product find(Integer id) {
+	    return manager.createQuery("select distinct(p) from Product p " + 
+	        "join fetch p.prices prices where p.id = :id", Product.class)
+	            .setParameter("id", id).getSingleResult();
 	}
 }

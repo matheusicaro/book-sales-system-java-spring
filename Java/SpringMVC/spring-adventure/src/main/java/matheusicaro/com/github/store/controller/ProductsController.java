@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,9 +39,9 @@ public class ProductsController {
 	
 	@RequestMapping("/form")
 	public ModelAndView form(Product product) {
-		ModelAndView pricesOfProducts = new ModelAndView("products/form");
-		pricesOfProducts.addObject("typesBook", EnumTypeBook.values());
-		return pricesOfProducts;
+		ModelAndView ModelAndViewPricesOfProducts = new ModelAndView("products/form");
+		ModelAndViewPricesOfProducts.addObject("typesBook", EnumTypeBook.values());
+		return ModelAndViewPricesOfProducts;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -61,9 +62,22 @@ public class ProductsController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView productsList (){
 		List<Product> products = productDAO.getProductsList();
-		ModelAndView productsList = new ModelAndView("products/products-list");
-		productsList.addObject("products", products);
-		return productsList;
+		ModelAndView ModelAndViewProductsList = new ModelAndView("products/products-list");
+		ModelAndViewProductsList.addObject("products", products);
+		return ModelAndViewProductsList;
 	}
+	
+	@RequestMapping("/productsDetails/{id}")
+	public ModelAndView productsDetails (@PathVariable("id") Integer id) {
+		
+		ModelAndView ModelAndViewProductDetails = new ModelAndView("products/products-details");
+		Product product = productDAO.find(id);
+		ModelAndViewProductDetails.addObject("products", product);
+		System.out.println("PRODUTO.....:" + product);
+		return ModelAndViewProductDetails;
+		
+	} 
+	
+	
 
 }
