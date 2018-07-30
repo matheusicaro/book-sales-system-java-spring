@@ -1,14 +1,16 @@
 package matheusicaro.com.github.store.models;
 
+import java.math.BigDecimal;
+
 public class CartItem {
 	
 	private Product product;
-	private EnumTypePrice type;
+	private EnumTypePrice typePrice;
 	
 	
 	public CartItem (Product product, EnumTypePrice type){
 		this.product = product;
-		this.type = type;
+		this.typePrice = type;
 	}
 	
 	public Product getProduct() {
@@ -17,11 +19,11 @@ public class CartItem {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public EnumTypePrice getType() {
-		return type;
+	public EnumTypePrice getTypePrice() {
+		return typePrice;
 	}
-	public void setType(EnumTypePrice type) {
-		this.type = type;
+	public void setTypePrice(EnumTypePrice type) {
+		this.typePrice = type;
 	}
 
 	@Override
@@ -29,7 +31,7 @@ public class CartItem {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((product == null) ? 0 : product.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((typePrice == null) ? 0 : typePrice.hashCode());
 		return result;
 	}
 
@@ -47,12 +49,16 @@ public class CartItem {
 				return false;
 		} else if (!product.equals(other.product))
 			return false;
-		if (type != other.type)
+		if (typePrice != other.typePrice)
 			return false;
 		return true;
 	}
 	
-	
-	
-	
+    public BigDecimal getPrice() {
+        return product.toPrice(typePrice);
+    }
+
+    public BigDecimal getTotal(int quantity) {
+        return this.getPrice().multiply(new BigDecimal(quantity));
+    }
 }

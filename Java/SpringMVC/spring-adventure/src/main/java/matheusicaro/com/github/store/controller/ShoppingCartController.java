@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,8 +33,7 @@ public class ShoppingCartController {
     
     @RequestMapping("/add")
 	public ModelAndView add(Integer productId, EnumTypePrice typePrice) {
-		System.out.println("ETROOOOOOOOOU");
-        ModelAndView modelAndView = new ModelAndView("redirect:/products");
+        ModelAndView modelAndView = new ModelAndView("redirect:/shopping-cart");
         CartItem cartItem = createCartItem (productId, typePrice);
         
         shoppingCart.addItemShoppingCart(cartItem);
@@ -41,12 +41,19 @@ public class ShoppingCartController {
 		return modelAndView;
 
 	}
+    
+	@RequestMapping(method=RequestMethod.GET)
+	public ModelAndView items(){
+	    return new ModelAndView("cart/items");
+	}
 
 	private CartItem createCartItem(Integer idProduct, EnumTypePrice typePrice) {
 
 		Product product = productDAO.find(idProduct); 
 		return new CartItem(product, typePrice);
 	}
+	
+
 
 }
 

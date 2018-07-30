@@ -1,5 +1,6 @@
 package matheusicaro.com.github.store.models;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -105,6 +106,10 @@ public class Product {
 		if (Id != other.Id)
 			return false;
 		return true;
+	}
+	
+	public BigDecimal toPrice(EnumTypePrice tipePrice) {
+	    return prices.stream().filter(price -> price.getType().equals(tipePrice)).findFirst().get().getValue();
 	}
 
 	
