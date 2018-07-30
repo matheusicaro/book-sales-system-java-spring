@@ -1,8 +1,10 @@
 package matheusicaro.com.github.store.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.ModelAndView;
 
 import matheusicaro.com.github.store.daos.ProductDAO;
@@ -15,6 +17,10 @@ import matheusicaro.com.github.store.models.ShoppingCart;
 
 @Controller
 @RequestMapping("/shopping-cart")
+@Scope(value=WebApplicationContext.SCOPE_REQUEST) // SCOPE.SESSION: Allows a new instance for each new request, that is,
+												  // For access to our section, an instance will be created for the requested
+												  // user, also a new object of the class. is required for a shopping cart in which
+												  // each user will receive yours.
 public class ShoppingCartController {
 
 	@Autowired

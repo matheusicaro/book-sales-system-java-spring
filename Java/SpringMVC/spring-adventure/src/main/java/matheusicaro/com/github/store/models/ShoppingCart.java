@@ -3,12 +3,17 @@ package matheusicaro.com.github.store.models;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 @Component
+@Scope(value=WebApplicationContext.SCOPE_SESSION) // SCOPE.SESSION: Enables a new instance for each new access, that is,
+												  // For each new shopping cart created, we will have a new object. In this case,
+												  // is required for a shopping cart in which each user will get yours.
 public class ShoppingCart {
 
-	private Map<CartItem, Integer> items = new LinkedHashMap<>(); //**** CartItem
+	private Map<CartItem, Integer> items = new LinkedHashMap<>();
 	
 	public void addItemShoppingCart (CartItem item) {
 		if(!items.containsKey(item))
@@ -17,7 +22,7 @@ public class ShoppingCart {
 			System.out.println("Já Existe este produto no seu Carrinho");
 	}
 	
-	public int getQuantities() {															//${shoppingCart.quantities} return quantities in shopping cart
+	public int getQuantities() {
 	    return items.values().stream().reduce(0, (next, cont) -> next + cont);
 	}
 }
