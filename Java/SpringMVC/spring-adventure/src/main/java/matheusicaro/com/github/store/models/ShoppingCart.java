@@ -27,6 +27,12 @@ public class ShoppingCart implements Serializable {
 			System.out.println("Já Existe este produto no seu Carrinho, adicione mais unidades deste produto nos detalhes do carrinho");
 	}
 	
+	public void removeItemShoppingCart(Integer productId, EnumTypePrice typePrice) {
+		Product product = new Product();
+		product.setId(productId);
+		items.remove(new CartItem(product, typePrice));
+	}
+	
 	public int getQuantities() {
 	    return items.values().stream().reduce(0, (next, cont) -> next + cont);
 	}

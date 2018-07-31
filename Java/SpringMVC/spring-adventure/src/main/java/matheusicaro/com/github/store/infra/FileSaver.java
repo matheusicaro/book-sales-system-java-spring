@@ -18,15 +18,18 @@ public class FileSaver {
 	public String write(String baseFolder, MultipartFile file, String title) {
 		
 		try {
-
-			String realPath = request.getServletContext().getRealPath("/" + baseFolder);
-			
-			int pointOfFileExtension = file.getOriginalFilename().indexOf(".");
-			String extension = file.getOriginalFilename().substring(pointOfFileExtension, file.getOriginalFilename().length());
-			String path = realPath + "\\" + title + extension;
-			file.transferTo(new File(path));
-			
-			return  baseFolder + "\\" + file.getOriginalFilename();
+			String linkSaveFile = "";
+			if(!file.isEmpty()) {
+				System.out.println();
+				String realPath = request.getServletContext().getRealPath("/" + baseFolder);
+				
+				int pointOfFileExtension = file.getOriginalFilename().indexOf(".");
+				String extension = file.getOriginalFilename().substring(pointOfFileExtension, file.getOriginalFilename().length());
+				String path = realPath + "\\" + title + extension;
+				file.transferTo(new File(path));
+				linkSaveFile =  baseFolder + "\\" + file.getOriginalFilename();
+			}
+			return linkSaveFile;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}		

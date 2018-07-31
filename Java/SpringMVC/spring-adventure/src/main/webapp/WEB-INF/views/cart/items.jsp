@@ -29,7 +29,12 @@
 <link rel="canonical" href="http://www.casadocodigo.com.br/" />
 </head>
 <body>
-
+	<div>
+		<h3>${success}</h3>
+	</div>
+    <div>
+    	<h3>${fail}</h3>
+    </div>
 	<header id="layout-header">
 		<div class="clearfix container">
 			<a href="/" id="logo"> </a>
@@ -91,17 +96,21 @@
 						</td>
 						<td class="numeric-cell">${shoppingCart.getTotal(item) }</td>
 						<td class="remove-item">
-							<form action="" method="POST">
+							<form action="${s:mvcUrl('SCC#remove').arg(0, item.product.id).arg(1, item.typePrice).build()}" method="POST">
 								<input type="image" src="${contextPath }/resources/imagens/excluir.png" 
 									alt="Excluir" title="Excluir" />
 							</form>	
 						</td>
-					</tr>
+					</tr>					$
 				</c:forEach>
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3"><input type="submit" class="checkout" name="checkout" value="Finalizar compra" /></td>
+					<td colspan="3">
+						<form action="${s:mvcUrl('PC#finalizeBuyItem').build()}" method="POST">
+							<input type="submit" class="checkout" name="checkout" value="Finalizar compra" />
+						</form>
+					</td>
 					<td class="numeric-cell">${shoppingCart.total }</td>
 					<td></td>
 				</tr>

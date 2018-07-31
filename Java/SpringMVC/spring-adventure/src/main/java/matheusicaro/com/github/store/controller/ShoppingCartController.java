@@ -42,6 +42,12 @@ public class ShoppingCartController {
 
 	}
     
+	@RequestMapping(method=RequestMethod.POST) 
+	public ModelAndView remove(Integer productId, EnumTypePrice typePrice) {
+		shoppingCart.removeItemShoppingCart(productId, typePrice);
+		return new ModelAndView("redirect:carrinho-de-compras");
+	}
+    
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView items(){
 	    return new ModelAndView("cart/items");
@@ -52,9 +58,6 @@ public class ShoppingCartController {
 		Product product = productDAO.find(idProduct); 
 		return new CartItem(product, typePrice);
 	}
-	
-
-
 }
 
 
