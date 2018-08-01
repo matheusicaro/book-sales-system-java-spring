@@ -18,12 +18,19 @@ Below you will find each step completed until the project is completed.
 12) Introducing control
 13) Model View Controller
 
-Views are accessed through the addresses http://localhost:8080/manager/*:
 
-*/Login -> Login
-*/Logout -> Log Out
-*/NewCompany -> Add New Company
-*/SearchCompany -> Company Search
+# Installation and Access
+
+Export project in jar or execute in IDE.
+The pages (views) are accessed through the addresses http://localhost:8080/manager/*:
+
+*/Login -> Access Login in aplication, verify users in DAO.
+
+*/Logout -> Page for Log Out
+
+*/NewCompany -> Page for Add New Company
+
+*/SearchCompany -> Page for Company Search
 
 * Data tied to memory, contained at compile time without external database.
 
