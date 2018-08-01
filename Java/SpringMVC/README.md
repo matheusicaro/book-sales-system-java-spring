@@ -25,16 +25,16 @@ Necessary to configure a database, in this project was used PostGre. To configur
 
 The views are accessed through the addresses http: // localhost: 8080 / spring-adventure / *:
 
-* / products -> Page that lists the products that are registered in the database
+*/products -> Page that lists the products that are registered in the database
 
-* / products / productsDetails / {id} -> Page to access the details of the desired product, or access through a link on the page of * / products.
+*/products / productsDetails / {id} -> Page to access the details of the desired product, or access through a link on the page of * / products.
 
-* / shopping-cart -> Responsible for the shopping cart of the selected products.
+*/shopping-cart -> Responsible for the shopping cart of the selected products.
 
 The dependencies used in this project can be found in the pom.xml file.
 
 # Course Certificate
 
-** Course Summary: [Link] (https://drive.google.com/open?id=15KchQE4LEmKajFMcbpuqB1a17lGcvL5L)
+** Course Summary: [Link](https://drive.google.com/open?id=15KchQE4LEmKajFMcbpuqB1a17lGcvL5L)
 
-** Certificate: [Link] (https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)
+** Certificate: [Link](https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)
