@@ -1,5 +1,10 @@
 package matheusicaro.com.github.store.config;
 
+import java.util.concurrent.TimeUnit;
+
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,68 +21,75 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.google.common.cache.CacheBuilder;
+
 import matheusicaro.com.github.store.controller.HomeController;
 import matheusicaro.com.github.store.daos.ProductDAO;
 import matheusicaro.com.github.store.infra.FileSaver;
 import matheusicaro.com.github.store.models.ShoppingCart;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {
-		HomeController.class,
-		ProductDAO.class,
-		FileSaver.class,
-		ShoppingCart.class
-		})
+@EnableCaching
+@ComponentScan(basePackageClasses = { HomeController.class, ProductDAO.class, FileSaver.class, ShoppingCart.class })
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
-	
+
 	@Bean
 	public InternalResourceViewResolver InternalResourceView() {
 
-	    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-	    resolver.setPrefix("/WEB-INF/views/");
-	    resolver.setSuffix(".jsp");
-	    
-	    resolver.setExposedContextBeanNames("shoppingCart");	// Bean available for viewing in the view.
-	    
-	    return resolver;
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+
+		resolver.setExposedContextBeanNames("shoppingCart"); // Bean available for viewing in the view.
+
+		return resolver;
 	}
-	
+
 	@Bean
 	public MessageSource messageSource() {
-	    ReloadableResourceBundleMessageSource messageSource =
-	        new ReloadableResourceBundleMessageSource();
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 
-	    messageSource.setBasename("/WEB-INF/messages");
-	    messageSource.setDefaultEncoding("UTF-8");
-	    messageSource.setCacheSeconds(1);
+		messageSource.setBasename("/WEB-INF/messages");
+		messageSource.setDefaultEncoding("UTF-8");
+		messageSource.setCacheSeconds(1);
 
-	    return messageSource;
+		return messageSource;
 	}
-	
+
 	@Bean
 	public FormattingConversionService mvcConversionService() {
-	    DefaultFormattingConversionService conversionService = 
-	        new DefaultFormattingConversionService();
-	    DateFormatterRegistrar registrar = new DateFormatterRegistrar();
-	    registrar.setFormatter(new DateFormatter("dd/MM/yyyy"));
-	    registrar.registerFormatters(conversionService);
+		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
+		DateFormatterRegistrar registrar = new DateFormatterRegistrar();
+		registrar.setFormatter(new DateFormatter("dd/MM/yyyy"));
+		registrar.registerFormatters(conversionService);
 
-	    return conversionService;
+		return conversionService;
 	}
-	
+
 	@Bean
 	public MultipartResolver multipartResolver() {
-	    return new StandardServletMultipartResolver();
+		return new StandardServletMultipartResolver();
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 	
 	@Bean
-	public RestTemplate restTemplate() {
-	    return new RestTemplate();
+	public CacheManager cacheManager() {
+
+		CacheBuilder<Object, Object> builder = CacheBuilder.newBuilder().maximumSize(100)
+												.expireAfterAccess(5,TimeUnit.MINUTES);
+		GuavaCacheManager manager = new GuavaCacheManager();
+		manager.setCacheBuilder(builder);
+
+		return manager;
 	}
-	
+
 	// handle static configuration, performance, and tomcat resources.
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-	    configurer.enable();
+		configurer.enable();
 	}
 }

@@ -37,8 +37,8 @@ public class ShoppingCartController {
         CartItem cartItem = createCartItem (productId, typePrice);
         
         shoppingCart.addItemShoppingCart(cartItem);
-        
-		return modelAndView;
+
+        return modelAndView;
 
 	}
     
