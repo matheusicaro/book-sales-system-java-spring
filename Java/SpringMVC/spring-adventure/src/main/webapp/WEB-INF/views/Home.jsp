@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -52,43 +56,20 @@
 	<nav class="navbar navbar-inverse">
 		
 		<div class="clearfix container">
-				<a href="/" id="logo"> </a>
 				<div id="header-content">
 					<nav id="main-nav">
 						<ul class="clearfix">
-							<li><a href="${s:mvcUrl('SCC#items').build() }"
-								rel="nofollow">Carrinho (${shoppingCart.quantities })</a></li>
-							<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre
-									Nós</a></li>
-							<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas
-									Frequentes</a></li>
+							
+							<li><a href="${s:mvcUrl('HC#home').build()}" >HOME </a></li>
+							 <security:authorize access="hasRole('ROLE_ADMIN')">
+							<li><a href="${s:mvcUrl('PC#productsList').build()}" rel="nofollow">Lista de Produtos Nós</a></li>
+							<li><a href="${s:mvcUrl('PC#form').build()}" rel="nofollow">Cadastro de Produtos</a></li>
+							</security:authorize>
+							<li><a href="${s:mvcUrl('SCC#items').build() }"	rel="nofollow">Carrinho (${shoppingCart.quantities })</a></li>
 						</ul>
 					</nav>
 				</div>
-			</div>
-		
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">
-					HOME </a>
-			</div>
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="${s:mvcUrl('PC#productsList').build()}">
-							Lista de Produtos </a></li>
-					<li><a href="${s:mvcUrl('PC#form').build()}"> Cadastro de
-							Produtos </a></li>
-				</ul>
-			</div>
-		</div>
+			</div>	
 	</nav>
 	<header id="layout-header"> </header>
 
@@ -106,7 +87,7 @@
 						<h2 class="product-title">${product.title}</h2> <img width="143"
 						height="202"
 						src="https://cdn.shopify.com/s/files/1/0155/7645/products/java8-featured_large.png?v=1411490181"
-						alt="Java 8 Prático" title="Java 8 Prático" /> <small
+						alt="Java 8 Prático" title="Java 8 Prático" /> <small	
 						class="buy-button">Compre</small>
 				</a></li>
 			</c:forEach>
@@ -204,7 +185,7 @@
 				<!-- social-footer -->
 				<p class="footer-title">Receba as Novidades e Lançamentos</p>
 				<div id="form-newsletter">
-					<form action="" method="POST" id="ss-form" class="form-newsletter">
+					<form:form action="" method="POST" id="ss-form" class="form-newsletter">
 						<ul>
 							<li><input type="hidden" name="pageNumber" value="0" /><input
 								type="hidden" name="backupCache" value="" /><input type="email"
@@ -213,7 +194,7 @@
 							<li><input type="submit" name="submit"
 								value="Quero Receber!" id="submit-newsletter" /></li>
 						</ul>
-					</form>
+				</form:form>
 					<ul>
 						<li class="ie8"><a href="" rel="nofollow">Receba as
 								Novidades e Lançamentos</a></li>

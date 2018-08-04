@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -100,7 +102,7 @@
 		</header>
 
 		<section class="buy-options clearfix">
-			<form action='<c:url value="/shopping-cart/add" />' method="post" class="container">
+			<form:form action='<c:url value="/shopping-cart/add" />' method="post" class="container">
 				<input type="hidden" value="${products.id }" name="productId" >
 				<ul id="variants" class="clearfix">
 					<c:forEach items="${products.prices}" var="prices" varStatus="status">
@@ -114,7 +116,7 @@
 					</c:forEach>
 				</ul>
 				<button type="submit" class="submit-image icon-basket-alt" title="Compre Agora ${products.title }"></button>
-			</form>
+				</form:form>
 		</section>
 
 		<div class="container">
@@ -181,13 +183,13 @@
 				<!-- social-footer -->
 				<p class="footer-title">Receba as Novidades e Lançamentos</p>
 				<div id="form-newsletter">
-					<form action="" method="POST" id="ss-form" class="form-newsletter">
+					<form:form action="" method="POST" id="ss-form" class="form-newsletter">
 						<ul>
 							<li><input type="hidden" name="pageNumber" value="0" /><input type="hidden" name="backupCache" value="" /><input type="email"
 								name="entry.0.single" value="" class="ss-q-short" id="entry_0" placeholder="seu@email.com" /></li>
 							<li><input type="submit" name="submit" value="Quero Receber!" id="submit-newsletter" /></li>
 						</ul>
-					</form>
+					</form:form>
 					<ul>
 						<li class="ie8"><a href="" rel="nofollow">Receba as Novidades e Lançamentos</a></li>
 					</ul>
