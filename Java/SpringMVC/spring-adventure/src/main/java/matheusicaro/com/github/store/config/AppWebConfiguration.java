@@ -107,7 +107,7 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	    return resolver;
 	}
 
-	// handle static configuration, performance, and tomcat resources.
+	// handle static configuration, performance, and tomcat resources, and utilizing bootstrap and JS. 
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();

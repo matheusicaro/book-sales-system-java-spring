@@ -14,7 +14,6 @@
 <link href="https://plus.googlecom/108540024862647200608" rel="publisher" />
 
 <title>Adventure In Spring - GitHub: @matheusicaro</title>
-
 <link href="${contextPath}resources/css/cssbase-min.css" rel="stylesheet" type="text/css" media="all" />
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' />
 <link href="${contextPath}resources/css/fonts.css" rel="stylesheet" type="text/css" media="all" />
@@ -27,9 +26,38 @@
 <link href="${contextPath}resources/css/guia-do-programador-style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="${contextPath}resources/css/produtos.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="canonical" href="http://www.casadocodigo.com.br/" />
+<link rel="stylesheet" href="${contextPath}resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="${contextPath}resources/css/bootstrap-theme.min.css">
+<style type="text/css">
+	body { padding-top: 60px; }
+</style>
 </head>
 <body>
-
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">
+					HOME </a>
+			</div>
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="${s:mvcUrl('PC#productsList').build()}">
+							Lista de Produtos </a></li>
+					<li><a href="${s:mvcUrl('PC#form').build()}"> Cadastro de
+							Produtos </a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+	</nav>
 	<header id="layout-header">
 		<div class="clearfix container">
 			<a href="/" id="logo"> </a>
