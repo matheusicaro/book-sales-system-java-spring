@@ -3,7 +3,7 @@
 This project consists of a book sales system, where it is possible to book a book for sale with different types of prices and images of the product in a database. Also, it is possible to purchase products and simulate payment using an external API.
 
 Below you will find each step until the project is completed.
-
+**PART 1
 1) Creating a first control and entities
 2) Configuring Home, preparing Spring JPA, and configuring the TransactionManager
 3) Creating the Views and modeling the type of data and price of the products, and still registering in the database
@@ -19,9 +19,19 @@ Below you will find each step until the project is completed.
 13) Implementing a shopping cart and payment using external api.
 14) Implementing asynchronous requests
 
+**PART 2
+
 # Installation and access
 
-Necessary to configure a database, in this project was used PostGre. To configure another database, simply import the dependencies and configure the connection driver in the JPAConfiguration class. Export project in jar or run in an IDE.
+**Necessary to configure a database, in this project was used PostGre. To configure another database, simply import the dependencies and configure the connection driver in the JPAConfiguration class.
+**create database and after starting the application, the tables will be generated automatically by Hibernate, done this, necessary to insert query below to login and in the system and pages monitored by Spring Security.
+```
+insert into Role values('ROLE_ADMIN');
+
+insert into Usuario (email, name, password) values ('admin@admin', 'Administrador', '$2a$04$qP517gz1KNVEJUTCkUQCY.JzEoXzHFjLAhPQjrg5iP6Z/UmWjvUhq'); //password = 123456, gerado por gerado por "new BCryptPasswordEncoder().encode("123456")";
+
+insert into Usuario_Role(user_email, roles_name) values('admin@admin', 'ROLE_ADMIN');
+```
 
 The views are accessed through the addresses http: // localhost: 8080 / spring-adventure / *:
 
@@ -35,6 +45,6 @@ The dependencies used in this project can be found in the pom.xml file.
 
 # Course Certificate
 
-** Course Summary: [Link] (https://drive.google.com/open?id=15KchQE4LEmKajFMcbpuqB1a17lGcvL5L)
+** **Course Summary: [Link] (https://drive.google.com/open?id=15KchQE4LEmKajFMcbpuqB1a17lGcvL5L)
 
-** Certificate: [Link] (https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)
+** **Certificate: [Link] (https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)

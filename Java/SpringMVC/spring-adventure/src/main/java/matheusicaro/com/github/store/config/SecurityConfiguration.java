@@ -5,21 +5,24 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import matheusicaro.com.github.store.daos.UserDAO;
 
 @EnableWebSecurity 
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
+	//@Autowired
+	//privateUserDAO userDAO;
+	
 	@Autowired
-	UserDAO userDAO;
+	private UserDetailsService users;
+	
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		auth.userDetailsService(userDAO).passwordEncoder(new BCryptPasswordEncoder());  
+		auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());  
 	}
 	
 	@Override
@@ -34,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	        .antMatchers("/").permitAll()
 	        .anyRequest().authenticated()
 	        .and().formLogin().loginPage("/login")
-	            .defaultSuccessUrl("/produtos").permitAll()
+	            .defaultSuccessUrl("/products").permitAll()
 	        .and().logout()
 	            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 	                .permitAll().logoutSuccessUrl("/login");    
