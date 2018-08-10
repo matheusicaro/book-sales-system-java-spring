@@ -10,7 +10,7 @@
 <tags:pageTemplate titulo="GitHub: @matheusicaro">
 
 <jsp:attribute name="extraScripts">
-   <script> console.log("Finalização de compra de ${carrinhoCompras.quantidade} itens"); </script>
+   <script> console.log("Finalização de compra de ${shoppingCart.quantitiese} itens"); </script>
 </jsp:attribute>
 
 <jsp:body>

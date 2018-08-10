@@ -22,7 +22,7 @@
 								code="menu.carrinho" arguments="${shoppingCart.quantities }" /></a></li>
 					<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow"><fmt:message
 								key="menu.sobre" /></a></li>
-					<li><a href="<c:url value="/logout" />">Sair</a></li> s
+					<li><a href="<c:url value="/logout" />">Sair</a></li>
 					<li><a href="?locale=pt" rel="nofollow"> <fmt:message
 								key="menu.pt" />
 					</a></li>
