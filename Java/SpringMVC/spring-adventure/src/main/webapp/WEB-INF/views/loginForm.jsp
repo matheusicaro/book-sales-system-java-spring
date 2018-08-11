@@ -16,10 +16,13 @@
             padding: 60px 0px;
         }
     </style>
+  
 </head>
 <body>
+
+  <div class="container"><a class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">	HOME </a></div>	
     <div class="container">
-        <h1>Login Casa do Código</h1>
+        <h1 style="margin-bottom: 3%;">Login</h1>	
         <form:form servletRelativeAction="/login" method="POST">
             <div class="form-group">
                 <label>E-mail</label>

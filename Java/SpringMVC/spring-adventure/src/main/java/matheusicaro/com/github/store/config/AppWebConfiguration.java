@@ -139,14 +139,18 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	    mailSender.setHost("smtp.gmail.com");
 	    mailSender.setUsername("hop.comercial.newslatter@gmail.com");
 	    mailSender.setPassword("Hop2018*");
-	    mailSender.setPort(587);
+	    mailSender.setPort(465);
 
 	    Properties mailProperties = new Properties();
 	    mailProperties.put("mail.smtp.auth", true);
 	    mailProperties.put("mail.smpt.starttls.enable", true);
-
+	    mailProperties.put("mail.smtp.socketFactory.port", "465");  
+	    mailProperties.put("mail.smtp.socketFactory.fallback", "false");  
+	    mailProperties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+	    
 	    mailSender.setJavaMailProperties(mailProperties);
 
 	    return mailSender;
 	}
 }
+

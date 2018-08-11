@@ -43,7 +43,6 @@ public class JPAConfiguration {
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         props.setProperty("hibernate.hbm2ddl.auto", "update");
         props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.format_sql", "true");
     
         
       /*  
@@ -61,8 +60,7 @@ public class JPAConfiguration {
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.format_sql", "true");
-         	*/
+  	*/
         factoryBean.setJpaProperties(props);
 
         factoryBean.setPackagesToScan("matheusicaro.com.github.store.models");
