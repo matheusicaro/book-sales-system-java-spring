@@ -58,7 +58,7 @@ public class ProductsController {
 		productDAO.toSave(product);
 	    redirectAttributes.addFlashAttribute("success", "Sucesso ao adicionar o livro!");
 	    
-	    return new ModelAndView("redirect:products");
+	    return new ModelAndView("redirect:/products");
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)

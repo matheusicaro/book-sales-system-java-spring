@@ -23,8 +23,8 @@
 			<li><a href="" rel="nofollow">Meus E-books</a></li>
 			<li><a href="">Sobre a Casa do Código</a></li>
 			<li><a href="">Perguntas Frequentes</a></li>
-			<li><a href="">Caelum - Ensino e Inovação</a></li>
-			<li><a href="" rel="nofollow">Code Crushing</a></li>
+			<li><a href="">Ensino e Inovação</a></li>
+			<li><a href="${s:mvcUrl('HC#urlCreateAdmin').build() }" rel="nofollow">Code Crushing</a></li>
 			<li><a href="" rel="nofollow">Política de Privacidade</a></li>
 		</ul>
 		<p class="footer-title">Redes Sociais</p>

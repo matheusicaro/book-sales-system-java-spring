@@ -2,8 +2,11 @@ package matheusicaro.com.github.store.config;
 
 import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration.Dynamic;
 
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -15,8 +18,9 @@ public class ServLetSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[] {
 				AppWebConfiguration.class,
+				JPAProductionConfiguration.class,
 				JPAConfiguration.class,
-				SecurityConfiguration.class,
+				SecurityConfiguration.class
 				
 		};
 	}
@@ -46,6 +50,13 @@ public class ServLetSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 	    registration.setMultipartConfig(new MultipartConfigElement(""));
+	}
+	
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		super.onStartup(servletContext);
+		servletContext.addListener(RequestContextListener.class);
+		servletContext.setInitParameter("spring.profiles.active", "prod");
 	}
 
 }

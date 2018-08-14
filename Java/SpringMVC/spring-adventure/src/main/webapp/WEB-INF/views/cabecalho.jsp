@@ -41,7 +41,7 @@
 
 <nav class="categories-nav">
 	<ul class="container">
-		<li class="category"><a href=""><fmt:message key="navegacao.categoria.home"/></a></li>
+		<li class="category"><a href="${s:mvcUrl('HC#home').build() }"><fmt:message key="navegacao.categoria.home"/></a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.agile"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.front_end"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.games"/> </a></li>
@@ -49,5 +49,8 @@
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.mobile"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.web"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.outros"/> </a></li>
+			<li class="category" style="margin-left: 41%"><a href="${s:mvcUrl('LC#loginForm').build() }"> Login </a></li>
+			
+			
 	</ul>
 </nav>

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
@@ -32,6 +31,9 @@ public class UserDAO implements UserDetailsService {
 		System.out.println();
 		return users.get(0);
 	}
-}
-
 	
+	public void save(User user) {
+	    manager.persist(user);
+	}
+	
+}	
