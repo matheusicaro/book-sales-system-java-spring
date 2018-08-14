@@ -20,10 +20,19 @@ Below you will find each step until the project is completed.
 14) Implementing asynchronous requests
 
 **PART 2
+1) Cache Performance
+2) Rest Service Creation
+3) Spring Security
+4) Views with Template
+5) i18n
+6) Publishing project - Heroku
 
 # Installation and access
 
-**Necessary to configure a database, in this project was used PostGre. To configure another database, simply import the dependencies and configure the connection driver in the JPAConfiguration class.
+**1. mvn clean
+  2. mvn clean install
+  3. Go to the target folder
+
 **create database and after starting the application, the tables will be generated automatically by Hibernate, done this, necessary to insert query below to login and in the system and pages monitored by Spring Security.
 ```
 insert into Role values('ROLE_ADMIN');
@@ -35,16 +44,15 @@ insert into Usuario_Role(user_email, roles_name) values('admin@admin', 'ROLE_ADM
 
 The views are accessed through the addresses http: // localhost: 8080 / spring-adventure / *:
 
-* / products -> Page that lists the products that are registered in the database
+*/products -> Page that lists the products that are registered in the database
 
-* / products / productsDetails / {id} -> Page to access the details of the desired product, or access through a link on the page of * / products.
+*/products / productsDetails / {id} -> Page to access the details of the desired product, or access through a link on the page of * / products.
 
-* / shopping-cart -> Responsible for the shopping cart of the selected products.
+*/shopping-cart -> Responsible for the shopping cart of the selected products.
 
 The dependencies used in this project can be found in the pom.xml file.
 
 # Course Certificate
 
-** **Course Summary: [Link] (https://drive.google.com/open?id=15KchQE4LEmKajFMcbpuqB1a17lGcvL5L)
-
-** **Certificate: [Link] (https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)
+**Certificate pt 1: [Link] (https://drive.google.com/open?id=1RIw-HRBOathi_80IszugPhcrlYrGqIKI)
+**Certificate pt 2: [Link] (https://drive.google.com/open?id=1YRH9TF_UZ7MN8-Smi5RQ0SGF_hlrV_8_)
