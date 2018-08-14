@@ -58,5 +58,9 @@ public class ShoppingCart implements Serializable {
         return total ;
     }
 	
+	public void clean () {
+		this.items.clear();
+	}
+	
 	
 }
