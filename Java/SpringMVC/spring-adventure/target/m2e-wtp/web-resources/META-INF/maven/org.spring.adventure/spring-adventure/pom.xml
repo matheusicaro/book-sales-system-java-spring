@@ -35,6 +35,11 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.3</version>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -118,12 +123,12 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-	    <version>${hibernate.version}</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-	    <version>${hibernate.version}</version>
+			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -133,10 +138,10 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-	    <version>${spring.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
 
-	<!-- dependencias da api de validação -->
+		<!-- dependencias da api de validação -->
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
@@ -145,25 +150,25 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-	    <version>4.3.2.Final</version>
+			<version>4.3.2.Final</version>
 		</dependency>
 
 
-	<!-- dependencia driver postgres para heroku -->	
+		<!-- dependencia driver postgres para heroku -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1201-jdbc41</version>
 		</dependency>
 
-	<!-- dependencia driver mysql -->
+		<!-- dependencia driver mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-	    <version>${mysql.connector.version}</version>
+			<version>${mysql.connector.version}</version>
 		</dependency>
 
-	<!-- dependencias para trabalhar com json -->
+		<!-- dependencias para trabalhar com json -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
@@ -175,7 +180,7 @@
 			<version>2.5.1</version>
 		</dependency>
 
-	<!-- dependencias do guava (cache) -->
+		<!-- dependencias do guava (cache) -->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
@@ -185,10 +190,10 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-	    <version>${spring.version}</version>
+			<version>${spring.version}</version>
 		</dependency>
 
-	<!-- dependencias do spring security -->
+		<!-- dependencias do spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
@@ -210,7 +215,7 @@
 			<version>4.0.0.RELEASE</version>
 		</dependency>
 
-	<!-- dependencias email -->
+		<!-- dependencias email -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
