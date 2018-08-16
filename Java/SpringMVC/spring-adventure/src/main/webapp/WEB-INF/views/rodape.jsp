@@ -11,28 +11,27 @@
 		</ul>
 
 
+		<span class="footer-title">matheusicaro2@hotmail.com</span>
 
 
-		<div id="newsletter-footer" style="margin-bottom: 15px;">
+		<div id="newsletter-footer" style="margin-top: 15px;">
 			<a href="https://br.linkedin.com/in/matheusicaro"> <i
 				class="fa fa-linkedin-square" style="font-size: 48px; color: white"></i>
 			</a>
 		</div>
 
-		<div id="newsletter-footer">
-			<a href="https://www.facebook.com/matheus.icaro.5"> <i class="fa fa-facebook-square"
-				style="font-size: 48px; color: white"></i>
+		<div id="newsletter-footer" style="margin-top: 15px;">
+			<a href="https://www.facebook.com/matheus.icaro.5"> <i
+				class="fa fa-facebook-square" style="font-size: 48px; color: white"></i>
 
 			</a>
 		</div>
-		<div id="newsletter-footer">
-			<a href="https://github.com/matheusicaro"> <i class="fa fa-github"
-				style="font-size: 48px; color: white"></i>
+		<div id="newsletter-footer" style="margin-top: 15px;">
+			<a href="https://github.com/matheusicaro"> <i
+				class="fa fa-github" style="font-size: 48px; color: white"></i>
 			</a>
 		</div>
-		
-						 <span
-				class="footer-title">matheusicaro2@hotmail.com</span>
+
 
 	</div>
 </footer>

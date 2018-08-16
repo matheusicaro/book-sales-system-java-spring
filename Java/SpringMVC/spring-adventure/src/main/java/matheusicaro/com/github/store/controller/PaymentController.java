@@ -51,7 +51,6 @@ public class PaymentController {
 				sendEmailFromBuy(user);
 				
 				model.addFlashAttribute("success", "** " + response + " ** + Verifique o comprovante em seu e-mail");
-				System.out.println(response);
 				return new ModelAndView("redirect:/products");
 			}
 			catch (HttpClientErrorException e) {
