@@ -3,11 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 
 <tags:pageTemplate titulo="GitHub: @matheusicaro">
 
 	<section id="index-section" class="container middle">
-		<h1 class="cdc-call">Selecione um dos produtos abaixo!</h1>
+		<h1 class="cdc-call"><fmt:message key="menu.text.products" /></h1>
 
 		<ul class="clearfix book-collection">
 
@@ -23,43 +25,19 @@
 
 		</ul>
 
-		<h2 class="cdc-call">Veja Mais</h2>
+		<h2 class="cdc-call"><fmt:message key="menu.text.readme" /></h2>
 
-		<ul id="cdc-diferenciais" class="clearfix">
-			<li class="col-left">
-				<h3>E-books sem DRM. Leia onde quiser</h3>
-				<p>
-					<span class="sprite" id="sprite-drm"></span> Nossos e-books não
-					possuem DRM, ou seja, você pode ler em qualquer computador, tablet
-					e smartphone.
-				</p>
-			</li>
-			<li class="col-right">
-				<h3>Autores de renome na comunidade</h3>
-				<p>
-					<span class="sprite" id="sprite-renome"></span> Autores que
-					participam ativamente na comunidade com Open Source, listas de
-					discussão, grupos e mais.
-				</p>
-			</li>
-			<li class="col-left">
-				<h3>Receba atualizações dos e-books</h3>
-				<p>
-					<span class="sprite" id="sprite-atualizacoes"></span> Quando você
-					compra um e-book, automaticamente tem direito às atualizações e
-					correções dele.
-				</p>
-			</li>
-			<li class="col-right">
-				<h3>Livros com curadoria da Caelum</h3>
-				<p>
-					<span class="sprite" id="sprite-caelum"></span> Desenvolvedores
-					experientes que avaliam e revisam os livros constantemente.
-				</p>
-			</li>
-		</ul>
-
-
+		<h3><fmt:message key="menu.text.contend1.readme" /></h3>
+		<h3><fmt:message key="menu.text.contend2.readme" /></h3>
+		<h3><fmt:message key="menu.text.contend3.readme" /></h3>
+		
+		
+		<a	style="font-size: 30.5px; text-align: center; margin-bottom: 2%; text-decoration: blink; color: #F07D22;"
+			href="${s:mvcUrl('RC#register').build() }" class="block clearfix">
+		
+			<fmt:message key="menu.text.click.readme" />	
+		</a>
+		
 
 	</section>
 </tags:pageTemplate>

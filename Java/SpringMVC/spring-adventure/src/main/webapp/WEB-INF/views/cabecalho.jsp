@@ -11,23 +11,19 @@
 			<nav id="main-nav">
 				<ul class="nav navbar-nav navbar-left">
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-						<li><a href="${s:mvcUrl('PC#productsList').build() }" rel="nofollow"><fmt:message key="menu.lista_produtos" /></a></li>
-						<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow"><fmt:message key="menu.cadastro_produtos" /></a></li>
+						<li><a style="color: #EF7000;" href="${s:mvcUrl('PC#productsList').build() }" rel="nofollow"><fmt:message key="menu.lista_produtos" /></a></li>
+						<li><a style="color: #EF7000;" href="${s:mvcUrl('PC#form').build() }" rel="nofollow"><fmt:message key="menu.cadastro_produtos" /></a></li>
 					</security:authorize>
 					<li><a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow"><s:message
 								code="menu.carrinho" arguments="${shoppingCart.quantities }" /></a></li>
-					<li><a href="https://github.com/matheusicaro" rel="nofollow"><fmt:message
-								key="menu.sobre" /></a></li>
-					<li><a href="?locale=pt" rel="nofollow"> <fmt:message
-								key="menu.pt" />
-					</a></li>
+					<li><a href="https://github.com/matheusicaro" rel="nofollow">
+						<fmt:message key="menu.sobre" /></a></li>
+					
+					<li><a href="?locale=pt" rel="nofollow">
+						<fmt:message key="menu.pt" /></a></li>
+					<li><a href="?locale=en_UR" rel="nofollow"> 
+						<fmt:message key="menu.en" /></a></li>
 
-					<li><a href="?locale=en_UR" rel="nofollow"> <fmt:message
-								key="menu.en" />
-					</a></li>
-					<security:authorize access="isAuthenticated()">
-						<li><a href="<c:url value="/logout" />">Sair</a></li>
-					</security:authorize>
 				</ul>
 			</nav>
 		</div>
@@ -49,8 +45,10 @@
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.mobile"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.web"/> </a></li>
 			<li class="category"><a href=""> <fmt:message key="navegacao.categoria.outros"/> </a></li>
-			<li class="category" style="margin-left: 41%"><a href="${s:mvcUrl('LC#loginForm').build() }"> Login </a></li>
-			
+			<li class="category" style="margin-left: 35%"><a href="${s:mvcUrl('LC#loginForm').build() }"> Login </a></li>
+			<security:authorize access="isAuthenticated()">
+				<li class="category"><a href="<c:url value="/logout" />">(Sair)</a></li>
+			</security:authorize>
 			
 	</ul>
 </nav>

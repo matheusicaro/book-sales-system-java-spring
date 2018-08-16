@@ -20,7 +20,7 @@
 </head>
 <body>
 
-  <div class="container"><a class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">	HOME </a></div>	
+  <div class="container"><a style="margin-left: 50%; font-size: 35px;" class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">	HOME </a></div>	
     <div class="container">
         <h1 style="margin-bottom: 3%;">Login</h1>	
         <form:form servletRelativeAction="/login" method="POST">
@@ -38,6 +38,13 @@
                 Logar
             </button>
         </form:form>
-    </div>
+
+		<div>
+			<h2>${success}</h2>
+		</div>
+		<div>
+			<h2>${fail}</h2>
+		</div>
+	</div>
 </body>
 </html>

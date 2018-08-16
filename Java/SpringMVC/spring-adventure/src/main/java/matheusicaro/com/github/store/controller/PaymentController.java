@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import matheusicaro.com.github.store.models.PaymantData;
 import matheusicaro.com.github.store.models.ShoppingCart;
-import matheusicaro.com.github.store.models.User;
+import matheusicaro.com.github.store.models.UserAuth;
 
 @RequestMapping("/payment")
 @Controller
@@ -40,7 +40,7 @@ public class PaymentController {
 	// user to wait for payment while others can browse the server.
 
 	@RequestMapping(value = "/finalize", method = RequestMethod.POST)
-	public Callable<ModelAndView> finalizeBuyItem(@AuthenticationPrincipal User user, RedirectAttributes model) {	
+	public Callable<ModelAndView> finalizeBuyItem(@AuthenticationPrincipal UserAuth user, RedirectAttributes model) {	
 		System.out.println();
 		return () -> {  //Lambda necessary for implemention this CALLABLE
 			String uri = "http://book-payment.herokuapp.com/payment";
@@ -50,7 +50,7 @@ public class PaymentController {
 				
 				sendEmailFromBuy(user);
 				
-				model.addFlashAttribute("success", "** " + response + " **");
+				model.addFlashAttribute("success", "** " + response + " ** + Verifique o comprovante em seu e-mail");
 				System.out.println(response);
 				return new ModelAndView("redirect:/products");
 			}
@@ -62,7 +62,7 @@ public class PaymentController {
 		};
 	}
 
-	private void sendEmailFromBuy(User user) {
+	private void sendEmailFromBuy(UserAuth user) {
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setSubject("Compra finalizada com sucesso");
 		email.setTo(user.getEmail());

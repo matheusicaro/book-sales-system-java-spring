@@ -39,72 +39,38 @@
 			<a class="navbar-brand" href="${s:mvcUrl('HC#home').build()}">
 				HOME </a>
 		</div>
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="${s:mvcUrl('PC#productsList').build()}"> Lista
-						de Produtos </a></li>
-				<li><a href="${s:mvcUrl('PC#form').build()}"> Cadastro de
-						Produtos </a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li class="nav-item"><a href="<c:url value="/logout" />">Sair</a></span>
-				</li>
-				<li class="nav-item"><a href="#"> <security:authentication
-							property="principal" var="user" /> ${user.username }
-				</a></li>
-			</ul>
-		</div>
+		
 	</div>
 	</nav>
 
 	<div class="container">
-		<h1>Cadastro de Produto</h1>
-		<form:form action="${s:mvcUrl('PC#save').build()}" method="POST"
-			commandName="product" enctype="multipart/form-data">
+		<h1>Cadastro de Usuario</h1>
+		<form:form action="${s:mvcUrl('RC#createRegister').build() }" method="POST"
+			commandName="user">
 
 			<div class="form-group">
-				<label>Título</label>
-				<form:input path="title" cssClass="form-control" />
-				<form:errors style="color: red" path="title" />
+				<label>Nome</label>
+				<form:input path="name" cssClass="form-control" />
+				<form:errors path="name" />
 			</div>
 			<div class="form-group">
-				<label>Descrição</label>
-				<form:textarea path="description" cssClass="form-control" />
-				<form:errors style="color: red" path="description" />
+				<label>E-mail (Login)</label>
+				<form:input path="email" cssClass="form-control" />
+				<form:errors path="email" />
 
 			</div>
 			<div class="form-group">
-				<label>Páginas</label>
-				<form:input path="pages" />
-				<form:errors style="color: red" path="pages" />
+				<label>Senha</label>
+				<form:input path="password" />
+				<form:errors path="password" />
 
-			</div>
-
-			<div cssClass="form-group">
-				<label>Data de Lançamento</label>
-				<form:input path="dateLaunch" cssClass="form-control" />
-				<form:errors style="color: red" path="dateLaunch" />
-			</div>
-
-			<c:forEach items="${typesBook}" var="EnumTypeBook" varStatus="status">
-				<div class="form-group">
-					<label>${EnumTypeBook}</label>
-					<form:input path="prices[${status.index}].value"
-						cssClass="form-control" />
-					<form:hidden path="prices[${status.index}].type"
-						value="${EnumTypeBook}" />
-				</div>
-			</c:forEach>
-
-			<div class="form-group">
-				<label>Sumário</label> <input name="sumaryFile" type="file"
-					class="form-control" />
 			</div>
 
 			<button type="submit" class="btn btn-primary">Cadastrar</button>
 
 		</form:form>
+
+		
 	</div>
 </body>
 </html>

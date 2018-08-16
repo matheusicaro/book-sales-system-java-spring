@@ -54,14 +54,14 @@
 
 		<h1>Lista de Produtos</h1>
 
-		<table class="table table-bordered table-striped table-hover">
+		<table style="text-align: center;" class="table table-bordered table-striped table-hover">
 			<tr>
-				<th><h2>Título</h2></th>
-				<th><h2>Descrição</h2></th>
-				<th><h2>Páginas</h2></th>
+				<th><h2 style="text-align: center;" >Título</h2></th>
+				<th><h2 style="text-align: center;" >Descrição</h2></th>
+				<th><h2 style="text-align: center;" >Páginas</h2></th>
 			</tr>
 			<c:forEach items="${products}" var="products">
-				<tr>
+				<tr style="font-size: 20px;">
 					<td><a
 						href="${s:mvcUrl('PC#productsDetails').arg(0, products.id).build()}">
 							${products.title} </a></td>
@@ -72,7 +72,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<br /> <br />
+		<div style="font-size: 17px; text-align: right;"><a href="${s:mvcUrl('PC#cleanDataBase').build() }">*Limpar Banco de Dados</a></div>
 		<div>
 			<h2>${success}</h2>
 		</div>

@@ -14,17 +14,17 @@ public class FileSaver {
 	@Autowired
 	private HttpServletRequest request;
 	
-	public String write(String baseFolder, MultipartFile file, String title) {
+	public String write(String baseFolder, MultipartFile file, String title, boolean uploadOfFileCancelled) {
 		
 		try {
 			String linkSaveFile = "";
-			if(!file.isEmpty()) {
+			if(!uploadOfFileCancelled && !file.isEmpty()) {
 				System.out.println();
 				String realPath = request.getServletContext().getRealPath("/" + baseFolder);
 				
 				int pointOfFileExtension = file.getOriginalFilename().indexOf(".");
-				String extension = file.getOriginalFilename().substring(pointOfFileExtension, file.getOriginalFilename().length());
-				String path = realPath + "\\" + title + extension;
+				String extensionOfFile = file.getOriginalFilename().substring(pointOfFileExtension, file.getOriginalFilename().length());
+				String path = realPath + "\\" + title + extensionOfFile;
 				file.transferTo(new File(path));
 				linkSaveFile =  baseFolder + "\\" + file.getOriginalFilename();
 			}

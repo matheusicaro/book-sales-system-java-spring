@@ -39,38 +39,12 @@ public class JPAConfiguration {
 	}
 
 //	Config DB MySQL
-    @Bean
-    @Profile("dev")
-    public Properties additionalProperties() {
-    	
-    	Properties props = new Properties();
-    	props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-    	props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-    	props.setProperty("hibernate.show_sql", "true");
-    	return props;
-    }
-    
-    @Bean
-    @Profile("dev")
-    public DriverManagerDataSource dataSource() {
-    	
-    	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    	dataSource.setUsername("root");
-    	dataSource.setPassword("12345");
-    	dataSource.setUrl("jdbc:mysql://localhost/spring_adventure");
-    	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-    
-    	return dataSource;
-    }
-
-    
-////	Config DB PostGre
 //    @Bean
 //    @Profile("dev")
 //    public Properties additionalProperties() {
 //    	
 //    	Properties props = new Properties();
-//    	props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+//    	props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 //    	props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
 //    	props.setProperty("hibernate.show_sql", "true");
 //    	return props;
@@ -81,12 +55,38 @@ public class JPAConfiguration {
 //    public DriverManagerDataSource dataSource() {
 //    	
 //    	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//    	dataSource.setUsername("postgres");
+//    	dataSource.setUsername("root");
 //    	dataSource.setPassword("12345");
-//    	dataSource.setUrl("jdbc:postgresql://localhost:5432/spring-adventure");
-//    	dataSource.setDriverClassName("org.postgresql.Driver");
+//    	dataSource.setUrl("jdbc:mysql://localhost/spring_adventure");
+//    	dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 //    
 //    	return dataSource;
 //    }
+
+    
+//	Config DB PostGre
+    @Bean
+    @Profile("dev")
+    public Properties additionalProperties() {
+    	
+    	Properties props = new Properties();
+    	props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+    	props.setProperty("hibernate.hbm2ddl.auto", "update"); //create-drop
+    	props.setProperty("hibernate.show_sql", "true");
+    	return props;
+    }
+    
+    @Bean
+    @Profile("dev")
+    public DriverManagerDataSource dataSource() {
+    	
+    	DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    	dataSource.setUsername("postgres");
+    	dataSource.setPassword("12345");
+    	dataSource.setUrl("jdbc:postgresql://localhost:5432/spring-adventure");
+    	dataSource.setDriverClassName("org.postgresql.Driver");
+    
+    	return dataSource;
+    }
     
 }
