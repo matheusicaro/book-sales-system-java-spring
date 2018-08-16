@@ -48,15 +48,21 @@ public class ProductsController {
 	@RequestMapping(method = RequestMethod.POST)
 	@CacheEvict(value="productsHome", allEntries=true)
 	public ModelAndView save(MultipartFile sumaryFile, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
+		System.out.println();
+		List<Product> productsList = productDAO.getProductsList();
 		
+		if( productsList.size() > 5 ) {
+		    redirectAttributes.addFlashAttribute("fail", "Limite de Livros no Banco! Limpe o banco de dados clicando ao lado -->");
+		}else {
+			if(result.hasErrors())
+				return form(product);
+			boolean uploadOfFileCancelled = true;
+			String pathFolder = fileSaver.write("files", sumaryFile, product.getTitle(), uploadOfFileCancelled);
+			product.setSumarioPath(pathFolder);
+			productDAO.toSave(product);
+		    redirectAttributes.addFlashAttribute("success", "Sucesso ao adicionar o livro!");
+		}
 		
-		if(result.hasErrors())
-			return form(product);
-
-		String pathFolder = fileSaver.write("files", sumaryFile, product.getTitle());
-		product.setSumarioPath(pathFolder);
-		productDAO.toSave(product);
-	    redirectAttributes.addFlashAttribute("success", "Sucesso ao adicionar o livro!");
 	    
 	    return new ModelAndView("redirect:/products");
 	}
@@ -79,6 +85,11 @@ public class ProductsController {
 		
 	} 
 	
-	
-
+	@RequestMapping("/cleanDataBase")
+	public ModelAndView cleanDataBase(RedirectAttributes redirectAttributes) {
+		
+		productDAO.cleanProducts();
+		redirectAttributes.addFlashAttribute("success", "Banco Limpo!");
+		return new ModelAndView("redirect:/products");
+	}
 }

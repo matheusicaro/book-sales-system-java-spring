@@ -38,4 +38,8 @@ public class ProductDAO {
 		
 		return query.getSingleResult();
 	}
+
+	public void cleanProducts() {
+		manager.createNativeQuery("truncate product * cascade").executeUpdate();
+	}
 }

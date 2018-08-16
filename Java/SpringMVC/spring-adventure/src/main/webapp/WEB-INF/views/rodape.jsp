@@ -1,57 +1,38 @@
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <footer id="layout-footer">
-  <div class="clearfix container">
-	<div id="collections-footer">
-		<!-- cdc-footer -->
-		<p class="footer-title">Coleções de Programação</p>
-		<ul class="footer-text-links">
-			<li><a href="">Java</a></li>
-			<li><a href="">Desenvolvimento Web</a></li>
-			<li><a href="">Mobile</a></li>
-			<li><a href="">Games</a></li>
-			<li><a href="">Front End</a></li>
+	<div style="text-align: center; width: 15%;" class="clearfix container">
+
+		<ul class="menu">
+			<li><a href="home.html"></a></li>
+			<li><a href="contato.html"></a></li>
+			<li><a href="sobre.html"></a></li>
 		</ul>
-		<p class="footer-title">Outros Assuntos</p>
-		<ul class="footer-text-links">
-			<li><a href="">Agile</a></li>
-			<li><a href="">e outros...</a></li>
-		</ul>
-	</div>
-	<div id="social-footer">
-		<!-- books-footer -->
-		<p class="footer-title">Links da Casa do Código</p>
-		<ul class="footer-text-links">
-			<li><a href="" rel="nofollow">Meus E-books</a></li>
-			<li><a href="">Sobre a Casa do Código</a></li>
-			<li><a href="">Perguntas Frequentes</a></li>
-			<li><a href="">Ensino e Inovação</a></li>
-			<li><a href="${s:mvcUrl('HC#urlCreateAdmin').build() }" rel="nofollow">Code Crushing</a></li>
-			<li><a href="" rel="nofollow">Política de Privacidade</a></li>
-		</ul>
-		<p class="footer-title">Redes Sociais</p>
-		<ul>
-			<li class="social-links"><a href="" target="_blank" id="twitter" rel="nofollow">Facebook</a> <a
-				href="" target="_blank" id="facebook" rel="nofollow">Twitter</a></li>
-		</ul>
-	</div>
-	<div id="newsletter-footer">
-		<!-- social-footer -->
-		<p class="footer-title">Receba as Novidades e Lançamentos</p>
-		<div id="form-newsletter">
-			<form action="" method="POST" id="ss-form" class="form-newsletter">
-				<ul>
-					<li><input type="hidden" name="pageNumber" value="0" /><input type="hidden" name="backupCache" value="" /><input type="email"
-						name="entry.0.single" value="" class="ss-q-short" id="entry_0" placeholder="seu@email.com" /></li>
-					<li><input type="submit" name="submit" value="Quero Receber!" id="submit-newsletter" /></li>
-				</ul>
-			</form>
-			<ul>
-				<li class="ie8"><a href="" rel="nofollow">Receba as Novidades e Lançamentos</a></li>
-			</ul>
+
+
+
+
+		<div id="newsletter-footer" style="margin-bottom: 15px;">
+			<a href="https://br.linkedin.com/in/matheusicaro"> <i
+				class="fa fa-linkedin-square" style="font-size: 48px; color: white"></i>
+			</a>
 		</div>
-		<ul class="footer-payments">
-			<li></li>
-			<li></li>
-		</ul>
+
+		<div id="newsletter-footer">
+			<a href="https://www.facebook.com/matheus.icaro.5"> <i class="fa fa-facebook-square"
+				style="font-size: 48px; color: white"></i>
+
+			</a>
+		</div>
+		<div id="newsletter-footer">
+			<a href="https://github.com/matheusicaro"> <i class="fa fa-github"
+				style="font-size: 48px; color: white"></i>
+			</a>
+		</div>
+		
+						 <span
+				class="footer-title">matheusicaro2@hotmail.com</span>
+
 	</div>
-  </div>
 </footer>
