@@ -33,12 +33,14 @@
          ]
       }
    ],
-   "cloud":{
-      "name":"Heroku",
-      "color":"#7253c6",
-      "tags":[
-         "PaaS",
-         "PostgreSQL"
-      ]
-   }
+   "cloud":[
+      {
+         "name":"Heroku",
+         "color":"#7253c6",
+         "tags":[
+            "PaaS",
+            "PostgreSQL"
+         ]
+      }
+   ]
 }
