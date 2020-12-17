@@ -1,46 +1,61 @@
 {
-   "frontend":[
+  "profile": {
+    "pt": {
+      "kind": "Estudos",
+      "name": "Sistema De Venda De Livros Com Spring Java Em Heroku Cloud",
+      "intro": "Este projeto consiste num sistema de venda de livros, onde é possível reservar um livro para venda com diferentes tipos de preços e imagens do produto numa base de dados. Além disso, é possível comprar produtos e simular o pagamento usando integração externa (API) para pagamentos."
+    },
+    "en": {
+      "kind": "Studies",
+      "name": "Book Sales System With Java Spring In Heroku Cloud",
+      "intro": "This project consists of a book sale system, where it is possible to book a book for sale with different types of prices and product images in a database. In addition, it is possible to purchase products and simulate payment using external payment integration (API)."
+    },
+    "es": {
+      "kind": "Estudios",
+      "name": "Sistema De Venta De Libros Con Java Spring En Heroku Cloud",
+      "intro": "Este proyecto consiste en el sistema de venta de livros, y es posible reservar um livro para venda con diferentes tipos de preços e imágenes del producto numa base de dados. Além disso, es posible comprar productos e simular o pagamento usando integração externa (API) para pagamentos."
+    }
+  },
+  "stack": {
+    "frontend": [
       {
-         "name":"PrimeFaces",
-         "color":"#D32F2F",
-         "tags":[
-            "JSF",
-            "JSP"
-         ]
+        "name": "PrimeFaces",
+        "tags": [
+          "JSF",
+          "JSP"
+        ]
       }
-   ],
-   "backend":[
+    ],
+    "backend": [
       {
-         "name":"Java",
-         "color":"#D32F2F",
-         "tags":[
-            "Spring",
-            "Gava Cache",
-            "JPA",
-            "HttpServelet",
-            "Hibernate",
-            "Java 8"
-         ]
+        "name": "Java",
+        "tags": [
+          "Spring",
+          "Gava Cache",
+          "JPA",
+          "HttpServelet",
+          "Hibernate",
+          "Java 8"
+        ]
       }
-   ],
-   "database":[
+    ],
+    "database": [
       {
-         "name":"PostgreSQL",
-         "color":"#326092",
-         "tags":[
-            "Jdbc4",
-            "Css3"
-         ]
+        "name": "PostgreSQL",
+        "tags": [
+          "Jdbc4",
+          "Css3"
+        ]
       }
-   ],
-   "cloud":[
+    ],
+    "cloud": [
       {
-         "name":"Heroku",
-         "color":"#7253c6",
-         "tags":[
-            "PaaS",
-            "PostgreSQL"
-         ]
+        "name": "Heroku",
+        "tags": [
+          "PaaS",
+          "PostgreSQL"
+        ]
       }
-   ]
+    ]
+  }
 }
