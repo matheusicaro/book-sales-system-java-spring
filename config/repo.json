@@ -5,6 +5,11 @@
       "name": "Sistema De Venda De Livros Com Spring Java Em Heroku Cloud",
       "intro": "Este projeto consiste num sistema de venda de livros, onde é possível reservar um livro para venda com diferentes tipos de preços e imagens do produto numa base de dados. Além disso, é possível comprar produtos e simular o pagamento usando integração externa (API) para pagamentos."
     },
+    "fr": {
+      "kind": "Études",
+      "name": "Système de vente de livres avec Spring Java sur Heroku Cloud",
+      "intro": "Ce projet consiste en un système de vente de livres, où il est possible de réserver un livre à vendre avec différents types de prix et des images de produits dans une base de données. De plus, il est possible d'acheter des produits et de simuler le paiement en utilisant l'intégration externe (API) pour les paiements."
+    },
     "en": {
       "kind": "Studies",
       "name": "Book Sales System With Java Spring In Heroku Cloud",
@@ -20,41 +25,25 @@
     "frontend": [
       {
         "name": "PrimeFaces",
-        "tags": [
-          "JSF",
-          "JSP"
-        ]
+        "tags": ["JSF", "JSP"]
       }
     ],
     "backend": [
       {
         "name": "Java",
-        "tags": [
-          "Spring",
-          "Gava Cache",
-          "JPA",
-          "HttpServelet",
-          "Hibernate",
-          "Java 8"
-        ]
+        "tags": ["Spring", "Gava Cache", "JPA", "HttpServelet", "Hibernate", "Java 8"]
       }
     ],
     "database": [
       {
         "name": "PostgreSQL",
-        "tags": [
-          "Jdbc4",
-          "Css3"
-        ]
+        "tags": ["Jdbc4", "Css3"]
       }
     ],
     "cloud": [
       {
         "name": "Heroku",
-        "tags": [
-          "PaaS",
-          "PostgreSQL"
-        ]
+        "tags": ["PaaS", "PostgreSQL"]
       }
     ]
   }
