@@ -1,4 +1,5 @@
 # Full App To Learned Spring MVC
+[![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/matheusicaro/book-sales-system-java-spring/blob/master/LICENSE)
 
 This project consists of a book sales system, where it is possible to book a book for sale with different types of prices and images of the product in a database. Also, it is possible to purchase products and simulate payment using an external API.
 
