@@ -21,6 +21,7 @@
       "intro": "Este proyecto consiste en el sistema de venta de livros, y es posible reservar um livro para venda con diferentes tipos de preços e imágenes del producto numa base de dados. Além disso, es posible comprar productos e simular o pagamento usando integração externa (API) para pagamentos."
     }
   },
+  "tags": ["Java", "PrimeFaces", "JSF", "JSP", "Spring", "Gava Cache", "JPA", "HttpServelet", "Hibernate", "Java 8", "PostgreSQL", "Heroku", "Full-stack", "Back-end", "Front-end"],
   "stack": {
     "frontend": [
       {
